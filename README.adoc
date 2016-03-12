@@ -35,7 +35,10 @@ This endpoint returns team stats for the given `seasonId` and `gameTypeId`.
 
 This application will attempt to register with a Eureka server at `http://localhost:8761`.  If a config server is
 found and it contains `stats.players` and `stats.teams` properties, those will be used as the base URI for fetching
-statistics.  If a Eureka server or config server is not available, then local properties should be configured, ie:
+statistics.  If a Eureka server or config server is not available, then local properties should be configured.
+
+=== Example
+
 `stats.players=http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary` and
 `stats.teams=http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary`.
 
