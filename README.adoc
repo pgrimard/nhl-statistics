@@ -5,7 +5,7 @@ v1.0.0, 2016-03-12
 :imagesdir: assets/images
 :homepage: http://patrickgrimard.com
 
-== REST Endpoints
+== Endpoints
 
 === Players
 
