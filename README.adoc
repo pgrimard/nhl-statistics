@@ -1,0 +1,13 @@
+= NHL Statistics
+Patrick Grimard <pgrimard@gmail.com>
+v0.0.1-SNAPSHOT, 2016-03-12
+:toc:
+:imagesdir: assets/images
+:homepage: http://patrickgrimard.com
+
+== NHL Endpoints
+
+1. Team regular season stats - http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=2
+2. Team playoff season stats - http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=3
+3. Player regular season stats - http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=2
+4. Player playoff season stats - http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=3
