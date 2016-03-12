@@ -5,7 +5,8 @@ v1.0.0, 2016-03-12
 :imagesdir: assets/images
 :homepage: http://patrickgrimard.com
 
-This service is used as a gateway to fetch statistics from the NHL website.
+This service is used as a gateway to fetch statistics from the NHL website.  Although you could call the various endpoints
+that NHL exposes directly, the goal of this project is to keep a consistent API in the event the NHL endpoints change.
 
 == Endpoints
 
