@@ -17,27 +17,34 @@ import java.util.Map;
  */
 @Service
 @RefreshScope
-public class NHLStatisticsServiceImpl implements NHLStatisticsService {
+public class NHLImpl implements NHL {
 
     private Environment env;
 
     private RestTemplate rest;
 
     @Inject
-    public NHLStatisticsServiceImpl(Environment env, RestTemplate rest) {
+    public NHLImpl(Environment env, RestTemplate rest) {
         this.env = env;
         this.rest = rest;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Map conferenceStats() {
-        String conferenceUri = env.getProperty("stats.teams.regular");
-        Map response = rest.getForObject(conferenceUri, Map.class, "20152016", "2");
-        return response;
+    public Map<String, Object> teamStats(String seasonId, String gameTypeId) {
+        String httpUrl = env.getRequiredProperty("stats.teams");
+
+        UriComponents uri = UriComponentsBuilder
+                .fromHttpUrl(httpUrl)
+                .queryParam("cayenneExp", "seasonId=" + seasonId + " and gameTypeId=" + gameTypeId)
+                .build();
+
+        return rest.getForObject(uri.toUri(), Map.class);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Map playerStats(String seasonId, String gameTypeId) {
+    public Map<String, Object> playerStats(String seasonId, String gameTypeId) {
         String httpUrl = env.getRequiredProperty("stats.players");
 
         UriComponents uri = UriComponentsBuilder
