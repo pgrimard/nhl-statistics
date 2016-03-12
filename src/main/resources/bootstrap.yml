@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: nhl-statistics
+  cloud:
+    config:
+      discovery:
+        enabled: true
