@@ -1,9 +1,21 @@
 = NHL Statistics
 Patrick Grimard <pgrimard@gmail.com>
-v0.0.1-SNAPSHOT, 2016-03-12
+v1.0.0, 2016-03-12
 :toc:
 :imagesdir: assets/images
 :homepage: http://patrickgrimard.com
+
+== REST Endpoints
+
+=== Player Stats
+
+```/players```
+
+=== Team Stats
+
+```/teams```
+
+
 
 == NHL Endpoints
 
