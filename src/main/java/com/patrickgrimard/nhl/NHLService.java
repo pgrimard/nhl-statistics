@@ -17,14 +17,14 @@ import java.util.Map;
  */
 @Service
 @RefreshScope
-public class NHLImpl implements NHL {
+public class NHLService implements NHL {
 
     private Environment env;
 
     private RestTemplate rest;
 
     @Inject
-    public NHLImpl(Environment env, RestTemplate rest) {
+    public NHLService(Environment env, RestTemplate rest) {
         this.env = env;
         this.rest = rest;
     }

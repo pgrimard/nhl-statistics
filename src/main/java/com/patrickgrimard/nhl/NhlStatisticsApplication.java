@@ -8,10 +8,10 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class NhlStatisticsApplication {
+public class NHLStatisticsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NhlStatisticsApplication.class, args);
+		SpringApplication.run(NHLStatisticsApplication.class, args);
 	}
 
     @Bean
