@@ -7,20 +7,29 @@ v1.0.0, 2016-03-12
 
 == REST Endpoints
 
-
 === Player Stats
 
 [source]
 ----
-/players
+/players?seasonId=20152016&gameTypeId=2
 ----
+
+This endpoint returns player stats for the given ```seasonId``` and ```gameTypeId```.
+
+1. ```seasonId``` = The season requested, ex: ```20152016```
+2. ```gameTypeId``` = The game type requested, regular season is ```2``` while playoff season is ```3```
 
 === Team Stats
 
 [source]
 ----
-/teams
+/teams?seasonId=20152016&gameTypeId=2
 ----
+
+This endpoint returns team stats for the given ```seasonId``` and ```gameTypeId```.
+
+1. ```seasonId``` = The season requested, ex: ```20152016```
+2. ```gameTypeId``` = The game type requested, regular season is ```2``` while playoff season is ```3```
 
 
 
