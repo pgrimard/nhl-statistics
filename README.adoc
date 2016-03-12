@@ -31,6 +31,13 @@ This endpoint returns team stats for the given ```seasonId``` and ```gameTypeId`
 1. ```seasonId``` = The season requested, ex: ```20152016```
 2. ```gameTypeId``` = The game type requested, regular season is ```2``` while playoff season is ```3```
 
+== Cloud
+
+This application will attempt to register with a Eureka server at ```http://localhost:8761```.  If a config server is
+found and it contains ```stats.players``` and ```stats.teams``` properties, those will be used as the base URI for fetching
+statistics.  If a Eureka server or config server is not available, then local properties should be configured, ie:
+```stats.players=http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary``` and
+```stats.teams=http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary```.
 
 == NHL Endpoints
 
