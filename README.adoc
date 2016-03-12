@@ -43,7 +43,7 @@ statistics.  If a Eureka server or config server is not available, then local pr
 ----
 stats:
   players: http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary
-  teams: http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary`
+  teams: http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary
 ----
 
 
