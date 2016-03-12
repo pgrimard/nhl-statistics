@@ -5,6 +5,8 @@ v1.0.0, 2016-03-12
 :imagesdir: assets/images
 :homepage: http://patrickgrimard.com
 
+This service is used as a gateway to fetch statistics from the NHL website.
+
 == Endpoints
 
 === Players
