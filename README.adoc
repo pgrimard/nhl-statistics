@@ -7,13 +7,21 @@ v1.0.0, 2016-03-12
 
 == REST Endpoints
 
+
 === Player Stats
 
-```/players```
+[source]
+----
+/players
+----
 
 === Team Stats
 
-```/teams```
+[source]
+----
+/teams
+----
+
 
 
 
