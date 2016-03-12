@@ -16,22 +16,22 @@ import java.util.Map;
  */
 @RequestMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
 @RestController
-public class NHLStatisticsController {
+public class NHLController {
 
-    private NHLStatisticsService nhl;
+    private NHL nhl;
 
     @Inject
-    public NHLStatisticsController(NHLStatisticsService nhl) {
+    public NHLController(NHL nhl) {
         this.nhl = nhl;
     }
 
-    @RequestMapping(value = "/conference", method = RequestMethod.GET)
-    public Map conference() {
-        return nhl.conferenceStats();
+    @RequestMapping(value = "/teams", method = RequestMethod.GET)
+    public Map<String, Object> teams(@RequestParam String seasonId, @RequestParam String gameTypeId) {
+        return nhl.teamStats(seasonId, gameTypeId);
     }
 
     @RequestMapping(value = "/players", method = RequestMethod.GET)
-    public Map players(@RequestParam String seasonId, @RequestParam String gameTypeId) {
+    public Map<String, Object> players(@RequestParam String seasonId, @RequestParam String gameTypeId) {
         return nhl.playerStats(seasonId, gameTypeId);
     }
 }
