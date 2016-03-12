@@ -47,7 +47,7 @@ stats:
 ----
 
 
-== NHL Endpoints
+== Troubleshooting NHL Endpoints
 
 These are the underlying endpoints called by this service.  These may be useful if you need to make sure the NHL service
 is still operating correctly, or if they've made changes, as they seem to do every year.
