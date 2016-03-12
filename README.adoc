@@ -7,7 +7,7 @@ v1.0.0, 2016-03-12
 
 == REST Endpoints
 
-=== Player Stats
+=== Players
 
 [source]
 ----
@@ -19,7 +19,7 @@ This endpoint returns player stats for the given ```seasonId``` and ```gameTypeI
 1. ```seasonId``` = The season requested, ex: ```20152016```
 2. ```gameTypeId``` = The game type requested, regular season is ```2``` while playoff season is ```3```
 
-=== Team Stats
+=== Teams
 
 [source]
 ----
@@ -32,9 +32,10 @@ This endpoint returns team stats for the given ```seasonId``` and ```gameTypeId`
 2. ```gameTypeId``` = The game type requested, regular season is ```2``` while playoff season is ```3```
 
 
-
-
 == NHL Endpoints
+
+These are the underlying endpoints called by this service.  These may be useful if you need to make sure the NHL service
+is still operating correctly, or if they've made changes, as they seem to do every year.
 
 1. Team regular season stats - http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=2
 2. Team playoff season stats - http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=3
