@@ -1,5 +1,6 @@
 package com.patrickgrimard.nhl;
 
+import java.util.Collection;
 import java.util.Map;
 
 /**
@@ -17,7 +18,7 @@ public interface NHL {
      * @param seasonId Season to fetch stats for.
      * @return Map of data.
      */
-    Map<String, Object> teamStats(String seasonId);
+    Collection<Map<String, Object>> teamStats(String seasonId);
 
     /**
      * Returns player stats.
