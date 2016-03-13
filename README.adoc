@@ -26,13 +26,12 @@ This endpoint returns player stats for the given `seasonId` and `gameTypeId`.
 
 [source]
 ----
-/teams?seasonId=20152016&gameTypeId=2
+/teams?seasonId=20152016
 ----
 
-This endpoint returns team stats for the given `seasonId` and `gameTypeId`.
+This endpoint returns team stats for the given `seasonId`.
 
 1. `seasonId` = The season requested, ex: `20152016`
-2. `gameTypeId` = The game type requested, regular season is `2` while playoff season is `3`
 
 == Cloud
 
@@ -46,7 +45,7 @@ statistics.  If a Eureka server or config server is not available, then local pr
 ----
 stats:
   players: http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary
-  teams: http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary
+  teams: https://statsapi.web.nhl.com/api/v1/standings
 ----
 
 
@@ -55,7 +54,6 @@ stats:
 These are the underlying endpoints called by this service.  These may be useful if you need to make sure the NHL service
 is still operating correctly, or if they've made changes, as they seem to do every year.
 
-1. Team regular season stats - http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=2
-2. Team playoff season stats - http://www.nhl.com/stats/rest/grouped/teams/season/teamsummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=3
-3. Player regular season stats - http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=2
-4. Player playoff season stats - http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=3
+1. Team regular season stats - https://statsapi.web.nhl.com/api/v1/standings?season=20152016
+2. Player regular season stats - http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=2
+3. Player playoff season stats - http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary?cayenneExp=seasonId=20152016%20and%20gameTypeId=3

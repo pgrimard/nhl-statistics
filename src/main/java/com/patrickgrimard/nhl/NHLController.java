@@ -26,8 +26,8 @@ public class NHLController {
     }
 
     @RequestMapping(value = "/teams", method = RequestMethod.GET)
-    public Map<String, Object> teams(@RequestParam String seasonId, @RequestParam String gameTypeId) {
-        return nhl.teamStats(seasonId, gameTypeId);
+    public Map<String, Object> teams(@RequestParam String seasonId) {
+        return nhl.teamStats(seasonId);
     }
 
     @RequestMapping(value = "/players", method = RequestMethod.GET)

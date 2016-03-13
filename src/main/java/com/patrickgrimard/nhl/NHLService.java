@@ -31,12 +31,12 @@ public class NHLService implements NHL {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Map<String, Object> teamStats(String seasonId, String gameTypeId) {
+    public Map<String, Object> teamStats(String seasonId) {
         String httpUrl = env.getRequiredProperty("stats.teams");
 
         UriComponents uri = UriComponentsBuilder
                 .fromHttpUrl(httpUrl)
-                .queryParam("cayenneExp", "seasonId=" + seasonId + " and gameTypeId=" + gameTypeId)
+                .queryParam("season", seasonId)
                 .build();
 
         return rest.getForObject(uri.toUri(), Map.class);

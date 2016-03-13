@@ -15,10 +15,9 @@ public interface NHL {
      * Returns team stats.
      *
      * @param seasonId Season to fetch stats for.
-     * @param gameTypeId Game type to fetch stats for.
      * @return Map of data.
      */
-    Map<String, Object> teamStats(String seasonId, String gameTypeId);
+    Map<String, Object> teamStats(String seasonId);
 
     /**
      * Returns player stats.
