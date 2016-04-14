@@ -35,8 +35,8 @@ public class NHLService implements NHL {
     @SuppressWarnings("unchecked")
     @Override
     public Collection<Map<String, Object>> teamStats(String seasonId) {
-        String apiUrl = env.getRequiredProperty("stats.api");
-        String httpUrl = env.getRequiredProperty("stats.teams");
+        String apiUrl = env.getRequiredProperty("stats.api.url");
+        String httpUrl = env.getRequiredProperty("stats.api.teams");
 
         UriComponents uri = UriComponentsBuilder
                 .fromHttpUrl(httpUrl)
@@ -86,7 +86,7 @@ public class NHLService implements NHL {
     @SuppressWarnings("unchecked")
     @Override
     public Map<String, Object> playerStats(String seasonId, String gameTypeId) {
-        String httpUrl = env.getRequiredProperty("stats.players");
+        String httpUrl = env.getRequiredProperty("stats.api.players");
 
         UriComponents uri = UriComponentsBuilder
                 .fromHttpUrl(httpUrl)
