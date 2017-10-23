@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.inject.Inject;
 import java.util.Collection;
 import java.util.Map;
 
@@ -19,9 +18,8 @@ import java.util.Map;
 @RestController
 public class NHLController {
 
-    private NHL nhl;
+    private final NHL nhl;
 
-    @Inject
     public NHLController(NHL nhl) {
         this.nhl = nhl;
     }

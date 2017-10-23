@@ -7,7 +7,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.inject.Inject;
 import java.util.Collection;
 import java.util.Map;
 
@@ -22,11 +21,10 @@ import static java.util.stream.Collectors.toList;
 @RefreshScope
 public class NHLService implements NHL {
 
-    private Environment env;
+    private final Environment env;
 
-    private RestTemplate rest;
+    private final RestTemplate rest;
 
-    @Inject
     public NHLService(Environment env, RestTemplate rest) {
         this.env = env;
         this.rest = rest;
