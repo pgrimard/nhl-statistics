@@ -22,11 +22,10 @@ import static java.util.stream.Collectors.toList;
 @RefreshScope
 public class NHLService implements NHL {
 
-    private Environment env;
+    private final Environment env;
 
-    private RestTemplate rest;
+    private final RestTemplate rest;
 
-    @Inject
     public NHLService(Environment env, RestTemplate rest) {
         this.env = env;
         this.rest = rest;

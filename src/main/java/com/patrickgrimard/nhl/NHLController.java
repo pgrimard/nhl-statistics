@@ -19,9 +19,8 @@ import java.util.Map;
 @RestController
 public class NHLController {
 
-    private NHL nhl;
+    private final NHL nhl;
 
-    @Inject
     public NHLController(NHL nhl) {
         this.nhl = nhl;
     }
