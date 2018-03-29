@@ -36,7 +36,7 @@ This endpoint returns team stats for the given `seasonId`.
 == Cloud
 
 This application will attempt to register with a Eureka server at `http://localhost:8761`.  If a config server is
-found and it contains `stats.players` and `stats.teams` properties, those will be used as the base URI for fetching
+found and it contains `stats.api.players` and `stats.api.teams` properties, those will be used as the base URI for fetching
 statistics.  If a Eureka server or config server is not available, then local properties should be configured.
 
 === Example
@@ -44,8 +44,9 @@ statistics.  If a Eureka server or config server is not available, then local pr
 [source]
 ----
 stats:
-  players: http://www.nhl.com/stats/rest/grouped/skaters/season/skatersummary
-  teams: https://statsapi.web.nhl.com/api/v1/standings
+  api:
+    players: http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary
+    teams: https://statsapi.web.nhl.com/api/v1/standings
 ----
 
 
