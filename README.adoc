@@ -46,7 +46,7 @@ statistics.  If a Eureka server or config server is not available, then local pr
 stats:
   api:
     players: http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary
-    teams: https://statsapi.web.nhl.com/api/v1/standings
+    teams: http://www.nhl.com/stats/rest/teams?reportType=basic&reportName=teamsummary
 ----
 
 
@@ -55,6 +55,6 @@ stats:
 These are the underlying endpoints called by this service.  These may be useful if you need to make sure the NHL service
 is still operating correctly, or if they've made changes, as they seem to do every year.
 
-1. Team regular season stats - https://statsapi.web.nhl.com/api/v1/standings?season=20152016
-2. Player regular season stats - http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary&cayenneExp=seasonId=20152016%20and%20gameTypeId=2
-3. Player playoff season stats - http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary&cayenneExp=seasonId=20152016%20and%20gameTypeId=3
+1. Team regular season stats - http://www.nhl.com/stats/rest/teams?reportType=basic&reportName=teamsummary&cayenneExp=seasonId=20172018%20and%20gameTypeId=2
+2. Player regular season stats - http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary&cayenneExp=seasonId=20172018%20and%20gameTypeId=2
+3. Player playoff season stats - http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary&cayenneExp=seasonId=20172018%20and%20gameTypeId=3

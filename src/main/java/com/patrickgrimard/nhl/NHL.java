@@ -1,11 +1,10 @@
 package com.patrickgrimard.nhl;
 
-import java.util.Collection;
 import java.util.Map;
 
 /**
  * NHL service which will fetch various statistical data.
- *
+ * <p>
  * Created on 2016-03-12
  *
  * @author Patrick
@@ -15,15 +14,16 @@ public interface NHL {
     /**
      * Returns team stats.
      *
-     * @param seasonId Season to fetch stats for.
+     * @param seasonId   Season to fetch stats for.
+     * @param gameTypeId Game type to fetch stats for.
      * @return Map of data.
      */
-    Collection<Map<String, Object>> teamStats(String seasonId);
+    Map<String, Object> teamStats(String seasonId, String gameTypeId);
 
     /**
      * Returns player stats.
      *
-     * @param seasonId Season to fetch stats for.
+     * @param seasonId   Season to fetch stats for.
      * @param gameTypeId Game type to fetch stats for.
      * @return Map of data.
      */

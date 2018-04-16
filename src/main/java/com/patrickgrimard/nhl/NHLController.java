@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
 import java.util.Map;
 
 /**
@@ -25,8 +24,8 @@ public class NHLController {
     }
 
     @RequestMapping(value = "/teams", method = RequestMethod.GET)
-    public Collection<Map<String, Object>> teams(@RequestParam String seasonId) {
-        return nhl.teamStats(seasonId);
+    public Map<String, Object> teams(@RequestParam String seasonId) {
+        return nhl.teamStats(seasonId, "2");
     }
 
     @RequestMapping(value = "/players", method = RequestMethod.GET)

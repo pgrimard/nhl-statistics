@@ -7,10 +7,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Collection;
 import java.util.Map;
-
-import static java.util.stream.Collectors.toList;
 
 /**
  * Created on 2016-03-12
@@ -32,53 +29,15 @@ public class NHLService implements NHL {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Collection<Map<String, Object>> teamStats(String seasonId) {
-        String apiUrl = env.getRequiredProperty("stats.api.url");
+    public Map<String, Object> teamStats(String seasonId, String gameTypeId) {
         String httpUrl = env.getRequiredProperty("stats.api.teams");
 
         UriComponents uri = UriComponentsBuilder
                 .fromHttpUrl(httpUrl)
-                .queryParam("season", seasonId)
+                .queryParam("cayenneExp", "seasonId=" + seasonId + " and gameTypeId=" + gameTypeId)
                 .build();
 
-        Map<String, Object> response = rest.getForObject(uri.toUri(), Map.class);
-
-        Collection<Map<String, Object>> records = (Collection<Map<String, Object>>) response.get("records");
-        return records.stream()
-                .map(record -> (Collection<Map<String, Object>>) record.get("teamRecords"))
-                .flatMap(Collection::stream)
-                .map(teamRecord -> {
-                    Map<String, Object> teamRef = (Map<String, Object>) teamRecord.get("team");
-                    String teamLink = (String) teamRef.get("link");
-                    Map<String, Object> team = rest.getForObject(apiUrl + teamLink, Map.class);
-                    Collection<Map<String, Object>> teams = (Collection<Map<String, Object>>) team.get("teams");
-                    Map<String, Object> teamDetails = teams.stream().findFirst().get();
-
-                    Map<String, Object> conference = (Map<String, Object>) teamDetails.get("conference");
-                    teamRecord.put("conference", conference.get("name"));
-
-                    Map<String, Object> division = (Map<String, Object>) teamDetails.get("division");
-                    teamRecord.put("division", division.get("name"));
-
-                    Map<String, Object> leagueRecord = (Map<String, Object>) teamRecord.get("leagueRecord");
-                    teamRecord.put("losses", leagueRecord.get("losses"));
-                    teamRecord.put("ot", leagueRecord.get("ot"));
-                    teamRecord.put("wins", leagueRecord.get("wins"));
-                    teamRecord.remove("leagueRecord");
-
-                    Map<String, Object> streak = (Map<String, Object>) teamRecord.get("streak");
-                    teamRecord.put("streakCode", streak.get("streakCode"));
-                    teamRecord.remove("streak");
-
-                    teamRecord.put("teamName", teamDetails.get("name"));
-                    teamRecord.put("teamAbbr", teamDetails.get("abbreviation"));
-                    teamRecord.remove("team");
-
-                    teamRecord.remove("row");
-                    teamRecord.remove("lastUpdated");
-                    return teamRecord;
-                })
-                .collect(toList());
+        return rest.getForObject(uri.toUri(), Map.class);
     }
 
     @SuppressWarnings("unchecked")
