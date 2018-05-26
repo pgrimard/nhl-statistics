@@ -1,5 +1,7 @@
 package com.patrickgrimard.nhl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ import java.util.Map;
 @Service
 @RefreshScope
 public class NHLService implements NHL {
+
+    private static final Logger logger = LoggerFactory.getLogger(NHLService.class);
 
     private final Environment env;
 
@@ -37,7 +41,10 @@ public class NHLService implements NHL {
                 .queryParam("cayenneExp", "seasonId=" + seasonId + " and gameTypeId=" + gameTypeId)
                 .build();
 
-        return rest.getForObject(uri.toUri(), Map.class);
+        Map<String, Object> response = rest.getForObject(uri.toUri(), Map.class);
+        logger.info("Downloaded {} team stats", response.get("total"));
+
+        return response;
     }
 
     @SuppressWarnings("unchecked")
@@ -51,7 +58,10 @@ public class NHLService implements NHL {
                 .queryParam("cayenneExp", "seasonId=" + seasonId + " and gameTypeId=" + gameTypeId)
                 .build();
 
-        return rest.getForObject(uri.toUri(), Map.class);
+        Map<String, Object> response = rest.getForObject(uri.toUri(), Map.class);
+        logger.info("Downloaded {} player stats", response.get("total"));
+
+        return response;
 
         /*
 
