@@ -14,39 +14,40 @@ that NHL exposes directly, the goal of this project is to keep a consistent API 
 
 [source]
 ----
-/players?seasonId=20152016&gameTypeId=2
+/players?seasonId=20182019&gameTypeId=2
 ----
 
 This endpoint returns player stats for the given `seasonId` and `gameTypeId`.
 
-1. `seasonId` = The season requested, ex: `20152016`
+1. `seasonId` = The season requested, ex: `20182019`
 2. `gameTypeId` = The game type requested, regular season is `2` while playoff season is `3`
 
 === Teams
 
 [source]
 ----
-/teams?seasonId=20152016
+/teams?seasonId=20182019
 ----
 
 This endpoint returns team stats for the given `seasonId`.
 
-1. `seasonId` = The season requested, ex: `20152016`
+1. `seasonId` = The season requested, ex: `20182019`
 
-== Cloud
+== Configuration
 
-This application will attempt to register with a Eureka server at `http://localhost:8761`.  If a config server is
-found and it contains `stats.api.players` and `stats.api.teams` properties, those will be used as the base URI for fetching
-statistics.  If a Eureka server or config server is not available, then local properties should be configured.
+This service will attempt to register with a Eureka server at the default location `http://localhost:8761`.  If a
+connection is established, then it will attempt to fetch its configuration from a registered config server.
 
-=== Example
+The following properties are required in order to call the various endpoints.  They can be configured locally or as
+program arguments if a Eureka and config server are not available.
 
 [source]
 ----
 stats:
   api:
+    teams: http://www.nhl.com/stats/rest/team?isAggregate=false&reportType=basic&isGame=false&reportName=teamsummary
+    conference: https://statsapi.web.nhl.com/api/v1/standings
     players: http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary
-    teams: http://www.nhl.com/stats/rest/teams?reportType=basic&reportName=teamsummary
 ----
 
 
@@ -55,6 +56,7 @@ stats:
 These are the underlying endpoints called by this service.  These may be useful if you need to make sure the NHL service
 is still operating correctly, or if they've made changes, as they seem to do every year.
 
-1. Team regular season stats - http://www.nhl.com/stats/rest/teams?reportType=basic&reportName=teamsummary&cayenneExp=seasonId=20172018%20and%20gameTypeId=2
-2. Player regular season stats - http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary&cayenneExp=seasonId=20172018%20and%20gameTypeId=2
-3. Player playoff season stats - http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary&cayenneExp=seasonId=20172018%20and%20gameTypeId=3
+1. Team regular season stats - http://www.nhl.com/stats/rest/team?isAggregate=false&reportType=basic&isGame=false&reportName=teamsummary&cayenneExp=seasonId=20182019%20and%20gameTypeId=2
+2. Conference stats - https://statsapi.web.nhl.com/api/v1/standings?seasonId=20182019
+3. Player regular season stats - http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary&cayenneExp=seasonId=20182019%20and%20gameTypeId=2
+4. Player playoff season stats - http://www.nhl.com/stats/rest/skaters?reportType=basic&reportName=skatersummary&cayenneExp=seasonId=20182019%20and%20gameTypeId=3
