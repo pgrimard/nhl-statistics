@@ -10,6 +10,28 @@ that NHL exposes directly, the goal of this project is to keep a consistent API 
 
 == Endpoints
 
+=== Teams
+
+[source]
+----
+/teams?seasonId=20182019
+----
+
+This endpoint returns team stats for the given `seasonId`.
+
+1. `seasonId` = The season requested, ex: `20182019`
+
+=== Conference
+
+[source]
+----
+/conference?seasonId=20182019
+----
+
+This endpoint returns conference stats for the given `seasonId`.
+
+1. `seasonId` = The season requested, ex: `20182019`
+
 === Players
 
 [source]
@@ -21,17 +43,6 @@ This endpoint returns player stats for the given `seasonId` and `gameTypeId`.
 
 1. `seasonId` = The season requested, ex: `20182019`
 2. `gameTypeId` = The game type requested, regular season is `2` while playoff season is `3`
-
-=== Teams
-
-[source]
-----
-/teams?seasonId=20182019
-----
-
-This endpoint returns team stats for the given `seasonId`.
-
-1. `seasonId` = The season requested, ex: `20182019`
 
 == Configuration
 
