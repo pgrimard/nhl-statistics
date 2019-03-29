@@ -66,7 +66,6 @@ public class NHLService implements NHL {
     @SuppressWarnings("unchecked")
     @Override
     public Map<String, Object> playerStats(String seasonId, String gameTypeId) {
-        String apiUrl = env.getRequiredProperty("stats.api.url");
         String httpUrl = env.getRequiredProperty("stats.api.players");
 
         UriComponents uri = UriComponentsBuilder
