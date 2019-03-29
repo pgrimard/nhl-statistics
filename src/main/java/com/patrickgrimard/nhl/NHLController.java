@@ -28,6 +28,11 @@ public class NHLController {
         return nhl.teamStats(seasonId, "2");
     }
 
+    @RequestMapping(value = "/conference", method = RequestMethod.GET)
+    public Map<String, Object> conference(@RequestParam String seasonId) {
+        return nhl.conferenceStats(seasonId);
+    }
+
     @RequestMapping(value = "/players", method = RequestMethod.GET)
     public Map<String, Object> players(@RequestParam String seasonId, @RequestParam String gameTypeId) {
         return nhl.playerStats(seasonId, gameTypeId);

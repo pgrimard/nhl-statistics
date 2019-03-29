@@ -21,6 +21,14 @@ public interface NHL {
     Map<String, Object> teamStats(String seasonId, String gameTypeId);
 
     /**
+     * Returns conference stats to get team rank.
+     *
+     * @param seasonId Season to fetch the conference stats for.
+     * @return Map of data.
+     */
+    Map<String, Object> conferenceStats(String seasonId);
+
+    /**
      * Returns player stats.
      *
      * @param seasonId   Season to fetch stats for.

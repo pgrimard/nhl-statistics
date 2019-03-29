@@ -49,6 +49,22 @@ public class NHLService implements NHL {
 
     @SuppressWarnings("unchecked")
     @Override
+    public Map<String, Object> conferenceStats(String seasonId) {
+        String httpUrl = env.getRequiredProperty("stats.api.conference");
+
+        UriComponents uri = UriComponentsBuilder
+                .fromHttpUrl(httpUrl)
+                .queryParam("seasonId", seasonId)
+                .build();
+
+        Map<String, Object> response = rest.getForObject(uri.toUri(), Map.class);
+        logger.info("Downloaded conference stats");
+
+        return response;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
     public Map<String, Object> playerStats(String seasonId, String gameTypeId) {
         String apiUrl = env.getRequiredProperty("stats.api.url");
         String httpUrl = env.getRequiredProperty("stats.api.players");
