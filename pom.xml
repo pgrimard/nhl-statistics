@@ -5,7 +5,7 @@
 
     <groupId>com.patrickgrimard</groupId>
     <artifactId>nhl-statistics</artifactId>
-    <version>3.0.1</version>
+    <version>3.1.0</version>
     <packaging>jar</packaging>
 
     <name>NHL Statistics</name>
